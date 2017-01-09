@@ -16,7 +16,7 @@ present in /sys also.
 
 All requests and responses are JSON formatted.
 
-### GET /host/:hostname/
+### GET /hosts/:hostname
 
 Probe the hypervisor for the existence of a libvirt domain for the specific
 hostname.
@@ -25,10 +25,10 @@ hostname.
 
 Code | Meaning
 -----|--------
-204  | Libvirt domain exists
+200  | Libvirt domain exists
 404  | Libvirt domain does not exist
 
-### POST /host/:hostname/
+### POST /hosts/:hostname
 
 Create the libvirt domain for the specified hostname.
 
@@ -48,11 +48,12 @@ console | Boolean | Optional with _install_ | Whether to show debug console
 Code | Meaning
 -----|--------
 201  | Libvirt domain has been successfully created
+400  | Malformed JSON or missing required parameters
 409  | Libvirt domain already exists
 
 #### Example
 
-    POST /host/ns.example.com/ HTTP/1.1
+    POST /hosts/ns.example.com/ HTTP/1.1
 
     {
       "memory":512,
@@ -66,7 +67,7 @@ Code | Meaning
       "location":"http://gb.archive.ubuntu.com/ubuntu/dists/xenial/main/installer-amd64"
     }
 
-### GET /host/:hostname/network/:networkname/
+### GET /hosts/:hostname/networks/:networkname
 
 Probe the hypervisor for the existence of a natwork for a specific host.
 
@@ -74,10 +75,10 @@ Probe the hypervisor for the existence of a natwork for a specific host.
 
 Code | Meaning
 -----|--------
-204  | Libvirt vlan network exists for the host
+200  | Libvirt vlan network exists for the host
 404  | Libvirt vlan network doesn't exist for the host
 
-### POST /host/:hostname/network/:networkname/
+### POST /hosts/:hostname/networks/:networkname
 
 Create the specified network
 
@@ -93,11 +94,12 @@ vlan | Integer | Required | VLAN tag to apply to the access port
 Code | Meaning
 -----|--------
 201  | Libvirt network has been successfully created
+400  | Malformed JSON or missing required parameters
 409  | Libvirt network already exists
 
 #### Example
 
-    POST /host/ns.example.com/network/managment-network
+    POST /hosts/ns.example.com/networks/managment-network
 
     {
       "bridge":"br0",
