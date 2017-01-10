@@ -1,0 +1,11 @@
+[Unit]
+Description=Manage VM hosts and networks in DataCentred's staging environment
+Requires=network.target
+
+[Service]
+WorkingDirectory=/usr/share/staging-compute
+EnvironmentFile=/etc/default/staging-compute
+ExecStart=/usr/bin/bundle exec bin/staging-compute
+
+[Install]
+WantedBy=multi-user.target

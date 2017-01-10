@@ -12,6 +12,12 @@ Disk controllers for example are forced to use the virtio-scsi driver so they
 appear as sdX in /dev and not vdX.  This also means the related directories are
 present in /sys also.
 
+## Building
+
+    apt-get -y install bundler make
+    gem install fpm
+    make build
+
 ## API
 
 All requests and responses are JSON formatted.
