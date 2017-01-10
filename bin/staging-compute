@@ -1,11 +1,13 @@
 #!/usr/bin/ruby
 
-# Add our local library paths to the search path
-library_path = Dir[
-  File.expand_path('../../lib', __FILE__)
-]
+# Get our absolute local library path
+local_lib = File.expand_path('../../lib', __FILE__)
 
-$LOAD_PATH.unshift(*library_path)
+# Get the absolute paths of our vendor libraries
+vendor_lib = Dir[File.expand_path('../../vendor/ruby/*/gems/*/lib', __FILE__)]
+
+# Add to the global search path
+$LOAD_PATH.unshift(local_lib, *vendor_lib)
 
 # Run the staging-compute application
 require 'staging-compute/staging-compute'

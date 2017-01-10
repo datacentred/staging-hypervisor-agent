@@ -4,6 +4,8 @@ require 'staging-compute/hosts-controller'
 require 'staging-compute/networks-controller'
 
 class StagingCompute < Sinatra::Base
+  set :port, 8420
+
   before do
     if request.request_method == 'POST'
       begin

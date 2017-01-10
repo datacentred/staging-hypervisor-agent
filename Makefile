@@ -10,7 +10,7 @@ ${PACKAGE}:
 	/usr/bin/bundle install --path vendor
 	# Copy over the binaries, libraries and vendor packages to the install directory
 	mkdir -p build/usr/share/staging-compute
-	cp -a .bundle Gemfile Gemfile.lock bin lib vendor build/usr/share/staging-compute
+	cp -a bin lib vendor build/usr/share/staging-compute
 	# Install the environment file in the install directory
 	mkdir -p build/etc/default
 	cp etc/staging-compute build/etc/default
