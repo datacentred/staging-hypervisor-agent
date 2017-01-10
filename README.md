@@ -73,7 +73,6 @@ networks | Array[String] | Required | List of libvirt networks
 install | Boolean | Optional | Whether to network install an operating system
 location | String | Optional with _install_ | URL of libvirt network install location
 cmdline | Strin | Optional with _install_ | Kernel command line parameters
-console | Boolean | Optional with _install_ | Whether to show debug console
 
 #### Response
 

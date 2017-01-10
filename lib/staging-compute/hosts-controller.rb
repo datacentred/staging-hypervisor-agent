@@ -39,7 +39,6 @@ class HostsController
     # Add optional arguments
     command << "--location #{params['location']}" if params['location']
     command << "--extra-args '#{params['cmdline']}'" if params['cmdline']
-    command << '--noautoconsole' unless params['console']
 
     puts command.join(' ')
     # Create the host
