@@ -1,36 +1,48 @@
 require 'json'
 require 'sinatra/base'
-require 'staging-compute/hosts'
-require 'staging-compute/networks'
+require 'staging-compute/hosts-controller'
+require 'staging-compute/networks-controller'
 
 class StagingCompute < Sinatra::Base
+  before do
+    if request.request_method == 'POST'
+      begin
+        @body = JSON.parse(request.body.read)
+      rescue JSON::ParserError
+        halt 500
+      end
+    end
+  end
+
   get '/hosts' do
-    JSON.generate(Hosts.hosts)
+    HostsController.list
   end
 
   get '/hosts/:host' do
-    host = Hosts.find(params['host'])
-    return 404 unless host
-    JSON.generate(host)
+    HostsController.get(params['host'])
   end
 
-  get '/hosts/:host/networks/:network' do
-    name = Hosts.network_name(params['host'], params['network'])
-    network = Networks.find(name)
-    return 404 unless network
-    JSON.generate(network)
+  post '/hosts/:host' do
+    HostsController.create(params['host'], @body)
   end
 
-  post '/hosts/:host/networks/:network' do
-    name = Hosts.network_name(params['host'], params['network'])
-    begin
-      body = JSON.parse(request.body.read)
-    rescue JSON::ParserError
-      return 400
-    end
-    return 400 unless ['bridge', 'vlan'].all?{|p| body.include?(p)}
-    return 409 if Networks.find(name)
-    return 500 unless Networks.create(name, body['bridge'], body['vlan'])
-    201
+  delete '/hosts/:host' do
+    HostsController.delete(params['host'])
+  end
+
+  get '/networks' do
+    NetworksController.list
+  end
+
+  get '/networks/:network' do
+    NetworksController.get(params['network'])
+  end
+
+  post '/networks/:network' do
+    NetworksController.create(params['network'], @body)
+  end
+
+  delete '/networks/:network' do
+    NetworksController.delete(params['network'])
   end
 end
