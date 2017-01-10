@@ -41,7 +41,7 @@ id | String | Unique identifier
 name | String | Libvirt domain name
 state | String | State the host is in
 
-### GET /hosts/:hostname
+### GET /hosts/:host
 
 Probe the hypervisor for the existence of a libvirt domain for the specific
 hostname.
@@ -59,7 +59,7 @@ id | String | Unique identifier
 name | String | Libvirt domain name
 state | String | State the host is in
 
-### POST /hosts/:hostname
+### POST /hosts/:host
 
 Create the libvirt domain for the specified hostname.
 
@@ -99,7 +99,7 @@ Code | Meaning
       "location":"http://gb.archive.ubuntu.com/ubuntu/dists/xenial/main/installer-amd64"
     }
 
-### DELETE /hosts/:hostname
+### DELETE /hosts/:host
 
 Delete the libvirt domain and disks associated with a hostname
 
@@ -127,7 +127,7 @@ state | String | State the network is in
 autostart | String | Whether the network starts on boot
 persistent | String | Whether the network persists across reboot
 
-### GET /networks/:networkname
+### GET /networks/:network
 
 Probe the hypervisor for the existence of a natwork for a specific host.
 
@@ -138,7 +138,7 @@ Code | Meaning
 200  | Libvirt vlan network exists for the host
 404  | Libvirt vlan network doesn't exist for the host
 
-### POST /networks/:networkname
+### POST /networks/:network
 
 Create the specified network
 
@@ -166,7 +166,7 @@ Code | Meaning
       "vlan":10
     }
 
-### DELETE /networks/:networkname
+### DELETE /networks/:network
 
 Delete the libvirt network
 
