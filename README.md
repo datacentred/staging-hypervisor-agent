@@ -78,7 +78,7 @@ cmdline | Strin | Optional with _install_ | Kernel command line parameters
 
 Code | Meaning
 -----|--------
-200  | Libvirt domain has been successfully created
+201  | Libvirt domain has been successfully created
 400  | Malformed JSON or missing required parameters
 409  | Libvirt domain already exists
 
@@ -106,7 +106,7 @@ Delete the libvirt domain and disks associated with a hostname
 
 Code | Meaning
 -----|--------
-200  | Domain successfully deleted
+204  | Domain successfully deleted
 404  | Libvirt domain does not exist
 
 ### GET /networks
@@ -152,7 +152,7 @@ vlan | Integer | Required | VLAN tag to apply to the access port
 
 Code | Meaning
 -----|--------
-200  | Libvirt network has been successfully created
+201  | Libvirt network has been successfully created
 400  | Malformed JSON or missing required parameters
 409  | Libvirt network already exists
 
@@ -173,5 +173,5 @@ Delete the libvirt network
 
 Code | Meaning
 -----|--------
-200  | Network successfully deleted
+204  | Network successfully deleted
 404  | Network does not exist
