@@ -40,7 +40,6 @@ class HostsController
     command << "--location #{params['location']}" if params['location']
     command << "--extra-args '#{params['cmdline']}'" if params['cmdline']
 
-    puts command.join(' ')
     # Create the host
     return 500 unless system(command.join(' '))
 
