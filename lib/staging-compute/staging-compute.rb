@@ -4,6 +4,7 @@ require 'staging-compute/hosts-controller'
 require 'staging-compute/networks-controller'
 
 class StagingCompute < Sinatra::Base
+  set :bind, '0.0.0.0'
   set :port, 8420
 
   before do
