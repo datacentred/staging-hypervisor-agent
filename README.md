@@ -1,4 +1,4 @@
-# DataCentred Staging Compute Agent
+# DataCentred Staging Hypervisor Agent
 
 ## Description
 
