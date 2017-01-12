@@ -9,7 +9,7 @@ vendor_lib = Dir[File.expand_path('../../vendor/ruby/*/gems/*/lib', __FILE__)]
 # Add to the global search path
 $LOAD_PATH.unshift(local_lib, *vendor_lib)
 
-# Run the staging-compute application
-require 'staging-compute/staging-compute'
+# Run the staging-hypervisor-agent application
+require 'staging-hypervisor-agent/staging-hypervisor-agent'
 
-StagingCompute.run!
+StagingHypervisorAgent.run!

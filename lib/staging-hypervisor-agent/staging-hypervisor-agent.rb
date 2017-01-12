@@ -1,9 +1,9 @@
 require 'json'
 require 'sinatra/base'
-require 'staging-compute/hosts-controller'
-require 'staging-compute/networks-controller'
+require 'staging-hypervisor-agent/hosts-controller'
+require 'staging-hypervisor-agent/networks-controller'
 
-class StagingCompute < Sinatra::Base
+class StagingHypervisorAgent < Sinatra::Base
   set :bind, '0.0.0.0'
   set :port, 8420
 

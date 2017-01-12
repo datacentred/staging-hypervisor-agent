@@ -1,5 +1,5 @@
 require 'nokogiri'
-require 'staging-compute/networks'
+require 'staging-hypervisor-agent/networks'
 
 class NetworksController
   def self.list

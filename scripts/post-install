@@ -3,9 +3,9 @@
 # Create storage for disk images, ensuring the correct permissions as that
 # will dictate the owner/group the images are created as, and whether or
 # not qemu can actually access them
-mkdir -p /var/lib/staging-compute
-chown libvirt-qemu:kvm /var/lib/staging-compute
+mkdir -p /var/lib/staging-hypervisor-agent
+chown libvirt-qemu:kvm /var/lib/staging-hypervisor-agent
 
 # Start the service
-systemctl enable staging-compute
-systemctl restart staging-compute
+systemctl enable staging-hypervisor-agent
+systemctl restart staging-hypervisor-agent

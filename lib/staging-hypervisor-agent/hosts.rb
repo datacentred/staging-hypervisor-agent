@@ -16,10 +16,11 @@ class Hosts
       "--name #{name}",
       "--ram #{params['memory']}",
       '--controller type=scsi,model=virtio-scsi',
+      '--noautoconsole',
     ]
 
     command += params['disks'].map.with_index do |size, index|
-      "--disk path=/var/lib/staging-compute/#{name}.#{index}.img,size=#{size},bus=scsi"
+      "--disk path=/var/lib/staging-hypervisor-agent/#{name}.#{index}.img,size=#{size},bus=scsi"
     end
 
     command += params['networks'].map do |network|
@@ -36,7 +37,7 @@ class Hosts
     return false unless system("virsh destroy #{name}")
     return false unless system("virsh undefine #{name}")
 
-    disks = Dir.glob("/var/lib/staging-compute/#{name}.*")
+    disks = Dir.glob("/var/lib/staging-hypervisor-agent/#{name}.*")
     File.delete(*disks)
   end
 

@@ -1,5 +1,5 @@
 require 'json'
-require 'staging-compute/hosts'
+require 'staging-hypervisor-agent/hosts'
 
 class HostsController
   def self.list

@@ -3,8 +3,8 @@ Description=Manage VM hosts and networks in DataCentred's staging environment
 Requires=network.target
 
 [Service]
-EnvironmentFile=/etc/default/staging-compute
-ExecStart=/usr/share/staging-compute/bin/staging-compute
+EnvironmentFile=/etc/default/staging-hypervisor-agent
+ExecStart=/usr/share/staging-hypervisor-agent/bin/staging-hypervisor-agent
 
 [Install]
 WantedBy=multi-user.target
