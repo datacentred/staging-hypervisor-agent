@@ -8,4 +8,4 @@ chown libvirt-qemu:kvm /var/lib/staging-compute
 
 # Start the service
 systemctl enable staging-compute
-systemctl start staging-compute
+systemctl restart staging-compute
