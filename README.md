@@ -109,6 +109,13 @@ Code | Meaning
 204  | Domain successfully deleted
 404  | Libvirt domain does not exist
 
+### PUT /hosts/:host/start
+
+Code | Meaning
+-----|--------
+204 | Domain successfully started
+404 | Domain not found
+
 ### GET /networks
 
 List all networks on the hypervisor

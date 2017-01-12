@@ -2,11 +2,11 @@ class Hosts
   def self.list
     input = `virsh list --all`.split("\n").drop(2)
     input.map do |line|
-      Hash[[:id, :name, :state].zip(line.split)]
+      Hash[[:id, :name, :state].zip(line.split($;, 3))]
     end 
   end
 
-  def self.find(name)
+  def self.get(name)
     list.find{|host| host[:name] == name}
   end
 
@@ -34,11 +34,16 @@ class Hosts
   end
 
   def self.delete(name)
-    return false unless system("virsh destroy #{name}")
+    unless get(name)[:state] == 'shut off'
+      return false unless system("virsh destroy #{name}")
+    end
     return false unless system("virsh undefine #{name}")
 
     disks = Dir.glob("/var/lib/staging-hypervisor-agent/#{name}.*")
     File.delete(*disks)
   end
 
+  def self.start(name)
+    system("virsh start #{name}")
+  end
 end

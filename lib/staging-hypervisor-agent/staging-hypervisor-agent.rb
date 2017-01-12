@@ -33,6 +33,10 @@ class StagingHypervisorAgent < Sinatra::Base
     HostsController.delete(params['host'])
   end
 
+  put '/hosts/:host/start' do
+    HostsController.start(params['host'])
+  end
+
   get '/networks' do
     NetworksController.list
   end
