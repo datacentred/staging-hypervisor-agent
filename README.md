@@ -14,9 +14,14 @@ present in /sys also.
 
 ## Building
 
-    apt-get -y install bundler make
     gem install fpm
-    make build
+    gem build staging-hypervisor-agent.gemspec
+    fpm -s gem -t deb -d ruby-sinatra -d ruby-nokogiri \
+      --gem-package-name-prefix ruby \
+      --deb-systemd etc/systemd/system/staging-hypervisor-agent.service \
+      --deb-default etc/default/staging-hypervisor-agent \
+      --post-install scripts/post-install \
+      staging-hypervisor-agent-x.y.z.gem
 
 ## API
 

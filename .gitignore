@@ -2,5 +2,5 @@
 .bundle
 Gemfile.lock
 vendor
-build
+*.gem
 *.deb

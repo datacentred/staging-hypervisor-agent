@@ -4,7 +4,7 @@ Requires=network.target
 
 [Service]
 EnvironmentFile=/etc/default/staging-hypervisor-agent
-ExecStart=/usr/share/staging-hypervisor-agent/bin/staging-hypervisor-agent
+ExecStart=/usr/local/bin/staging-hypervisor-agent
 
 [Install]
 WantedBy=multi-user.target

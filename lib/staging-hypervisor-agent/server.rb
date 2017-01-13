@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'staging-hypervisor-agent/hosts-controller'
 require 'staging-hypervisor-agent/networks-controller'
 
-class StagingHypervisorAgent < Sinatra::Base
+class Server < Sinatra::Base
   set :bind, '0.0.0.0'
   set :port, 8420
 

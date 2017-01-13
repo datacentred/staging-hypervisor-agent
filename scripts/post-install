@@ -5,7 +5,3 @@
 # not qemu can actually access them
 mkdir -p /var/lib/staging-hypervisor-agent
 chown libvirt-qemu:kvm /var/lib/staging-hypervisor-agent
-
-# Start the service
-systemctl enable staging-hypervisor-agent
-systemctl restart staging-hypervisor-agent
