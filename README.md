@@ -16,7 +16,7 @@ present in /sys also.
 
     gem install fpm
     gem build staging-hypervisor-agent.gemspec
-    fpm -s gem -t deb -d ruby-sinatra -d ruby-nokogiri \
+    fpm -s gem -t deb -d ruby -d ruby-sinatra -d ruby-nokogiri \
       --gem-package-name-prefix ruby \
       --deb-systemd etc/systemd/system/staging-hypervisor-agent.service \
       --deb-default etc/default/staging-hypervisor-agent \
